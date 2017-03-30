@@ -54,7 +54,7 @@ if __name__ == "__main__":
         conf_matrices['ISM'], avg_nodes['ISM'], times['ISM'] = [], [], []
         conf_matrices['inTrees'], avg_nodes['inTrees'], times['inTrees'] = [], [], []
 
-        skf = StratifiedKFold(df[label_col], n_folds=NR_FOLDS, shuffle=True, random_state=1337)
+        skf = StratifiedKFold(df[label_col], n_folds=NR_FOLDS, shuffle=True, random_state=None)
 
         for fold, (train_idx, test_idx) in enumerate(skf):
             print 'Fold', fold+1, '/', NR_FOLDS, 'for dataset', dataset['name']
