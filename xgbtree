@@ -1,0 +1,145 @@
+digraph DT{
+node[fontname="Arial"];
+Node1 [label="maint <= 3.0"];
+Node2 [label="buying <= 1.0"];
+Node3 [label="lug_boot <= 1.0"];
+Node4 [label="maint <= 2.0"];
+Node5 [label="1
+{0: 620, 1: 691, 2: 35, 3: 33}" shape="box"];
+Node4 -> Node5 [label="true"];
+Node6 [label="1
+{0: 588, 1: 726, 2: 33, 3: 31}" shape="box"];
+Node4->Node6 [label="false"];
+Node3 -> Node4 [label="true"];
+Node7 [label="maint <= 2.0"];
+Node8 [label="0
+{0: 668, 1: 638, 2: 37, 3: 35}" shape="box"];
+Node7 -> Node8 [label="true"];
+Node9 [label="1
+{0: 630, 1: 680, 2: 35, 3: 33}" shape="box"];
+Node7->Node9 [label="false"];
+Node3->Node7 [label="false"];
+Node2 -> Node3 [label="true"];
+Node12 [label="lug_boot <= 1.0"];
+Node13 [label="doors <= 1.0"];
+Node14 [label="0
+{0: 657, 1: 650, 2: 37, 3: 35}" shape="box"];
+Node13 -> Node14 [label="true"];
+Node15 [label="maint <= 2.0"];
+Node16 [label="buying <= 2.0"];
+Node17 [label="maint <= 1.0"];
+Node18 [label="1
+{0: 631, 1: 679, 2: 35, 3: 33}" shape="box"];
+Node17 -> Node18 [label="true"];
+Node19 [label="1
+{0: 551, 1: 767, 2: 31, 3: 29}" shape="box"];
+Node17->Node19 [label="false"];
+Node16 -> Node17 [label="true"];
+Node20 [label="1
+{0: 623, 1: 688, 2: 35, 3: 33}" shape="box"];
+Node16->Node20 [label="false"];
+Node15 -> Node16 [label="true"];
+Node22 [label="buying <= 3.0"];
+Node23 [label="1
+{0: 632, 1: 677, 2: 36, 3: 34}" shape="box"];
+Node22 -> Node23 [label="true"];
+Node24 [label="0
+{0: 671, 1: 634, 2: 38, 3: 36}" shape="box"];
+Node22->Node24 [label="false"];
+Node15->Node22 [label="false"];
+Node13->Node15 [label="false"];
+Node12 -> Node13 [label="true"];
+Node32 [label="buying <= 2.0"];
+Node33 [label="maint <= 1.0"];
+Node34 [label="0
+{0: 672, 1: 633, 2: 38, 3: 36}" shape="box"];
+Node33 -> Node34 [label="true"];
+Node35 [label="maint <= 2.0"];
+Node36 [label="lug_boot <= 2.0"];
+Node37 [label="doors <= 2.0"];
+Node38 [label="1
+{0: 587, 1: 727, 2: 33, 3: 31}" shape="box"];
+Node37 -> Node38 [label="true"];
+Node39 [label="1
+{0: 640, 1: 669, 2: 36, 3: 34}" shape="box"];
+Node37->Node39 [label="false"];
+Node36 -> Node37 [label="true"];
+Node40 [label="1
+{0: 634, 1: 675, 2: 36, 3: 34}" shape="box"];
+Node36->Node40 [label="false"];
+Node35 -> Node36 [label="true"];
+Node42 [label="doors <= 1.0"];
+Node43 [label="1
+{0: 621, 1: 690, 2: 35, 3: 33}" shape="box"];
+Node42 -> Node43 [label="true"];
+Node44 [label="doors <= 3.0"];
+Node45 [label="1
+{0: 560, 1: 758, 2: 31, 3: 30}" shape="box"];
+Node44 -> Node45 [label="true"];
+Node46 [label="1
+{0: 605, 1: 708, 2: 34, 3: 32}" shape="box"];
+Node44->Node46 [label="false"];
+Node42->Node44 [label="false"];
+Node35->Node42 [label="false"];
+Node33->Node35 [label="false"];
+Node32 -> Node33 [label="true"];
+Node57 [label="maint <= 2.0"];
+Node58 [label="1
+{0: 584, 1: 731, 2: 33, 3: 31}" shape="box"];
+Node57 -> Node58 [label="true"];
+Node59 [label="buying <= 3.0"];
+Node60 [label="doors <= 2.0"];
+Node61 [label="lug_boot <= 2.0"];
+Node62 [label="1
+{0: 650, 1: 658, 2: 36, 3: 34}" shape="box"];
+Node61 -> Node62 [label="true"];
+Node63 [label="1
+{0: 572, 1: 744, 2: 32, 3: 30}" shape="box"];
+Node61->Node63 [label="false"];
+Node60 -> Node61 [label="true"];
+Node64 [label="1
+{0: 557, 1: 761, 2: 31, 3: 29}" shape="box"];
+Node60->Node64 [label="false"];
+Node59 -> Node60 [label="true"];
+Node66 [label="0
+{0: 672, 1: 633, 2: 38, 3: 36}" shape="box"];
+Node59->Node66 [label="false"];
+Node57->Node59 [label="false"];
+Node32->Node57 [label="false"];
+Node12->Node32 [label="false"];
+Node2->Node12 [label="false"];
+Node1 -> Node2 [label="true"];
+Node118 [label="buying <= 2.0"];
+Node119 [label="lug_boot <= 1.0"];
+Node120 [label="1
+{0: 634, 1: 675, 2: 36, 3: 34}" shape="box"];
+Node119 -> Node120 [label="true"];
+Node121 [label="doors <= 1.0"];
+Node122 [label="1
+{0: 625, 1: 685, 2: 35, 3: 33}" shape="box"];
+Node121 -> Node122 [label="true"];
+Node123 [label="lug_boot <= 2.0"];
+Node124 [label="doors <= 3.0"];
+Node125 [label="doors <= 2.0"];
+Node126 [label="1
+{0: 614, 1: 698, 2: 34, 3: 33}" shape="box"];
+Node125 -> Node126 [label="true"];
+Node127 [label="1
+{0: 571, 1: 745, 2: 32, 3: 30}" shape="box"];
+Node125->Node127 [label="false"];
+Node124 -> Node125 [label="true"];
+Node128 [label="1
+{0: 626, 1: 684, 2: 35, 3: 33}" shape="box"];
+Node124->Node128 [label="false"];
+Node123 -> Node124 [label="true"];
+Node130 [label="1
+{0: 566, 1: 751, 2: 32, 3: 30}" shape="box"];
+Node123->Node130 [label="false"];
+Node121->Node123 [label="false"];
+Node119->Node121 [label="false"];
+Node118 -> Node119 [label="true"];
+Node140 [label="0
+{0: 673, 1: 632, 2: 38, 3: 36}" shape="box"];
+Node118->Node140 [label="false"];
+Node1->Node118 [label="false"];
+}

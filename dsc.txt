@@ -1,0 +1,17 @@
+data.txt
+"?"
+1
+1 "age" n
+2 "sex" n
+3 "chest pain" n
+4 "resting bl" n
+5 "serum chol" n
+6 "fasting bl" n
+7 "resting el" n
+8 "max heartr" n
+9 "exercise i" n
+10 "oldpeak" n
+11 "slope peak" n
+12 "vessels" n
+13 "thal" n
+14 Class d

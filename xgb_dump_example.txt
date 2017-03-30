@@ -1,0 +1,37 @@
+0:[X10<3] yes=1,no=2,missing=1
+	1:[X6<7] yes=3,no=4,missing=3
+		3:[X5<9] yes=7,no=8,missing=7
+			7:[X3<0.23] yes=13,no=14,missing=13
+				13:[X5<7] yes=19,no=20,missing=19
+					19:leaf=-0.100874
+					20:leaf=0.0586768
+				14:[X14<231] yes=21,no=22,missing=21
+					21:leaf=-0.191359
+					22:leaf=-0.0915265
+			8:[X14<177] yes=15,no=16,missing=15
+				15:[X3<4.375] yes=23,no=24,missing=23
+					23:leaf=-0.134343
+					24:leaf=-0
+				16:[X14<1057] yes=25,no=26,missing=25
+					25:leaf=0.118134
+					26:leaf=0.0181373
+		4:[X5<4] yes=9,no=10,missing=9
+			9:leaf=-0.100874
+			10:[X14<284] yes=17,no=18,missing=17
+				17:[X14<2] yes=27,no=28,missing=27
+					27:leaf=0.116584
+					28:leaf=-0.0880152
+				18:leaf=0.168124
+	2:[X3<1.4375] yes=5,no=6,missing=5
+		5:[X14<403] yes=11,no=12,missing=11
+			11:leaf=-0.0470035
+			12:leaf=0.141011
+		6:leaf=0.197898
+
+
+
+* \t geeft de huidige diepte van de boom aan
+* [test]
+* afhankelijk van resultaat van de test (yes no of missing), ga je naar de corresponderende node (bv yes=1,no=2,missing=1 --> ga naar 1 als yes of missing)
+* Predictions are made by summing up the corresponding leaf values of each tree. Additionally, you need to transform those values depending on the objective you have choosen. For instance: If you trained your xgb with binary:logistic, the sum of the leaf values will be the logit score. So you need to apply the logistic function to get the wanted probabilities.
+--> What happens with multi:logloss?????
