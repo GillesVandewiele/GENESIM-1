@@ -36,7 +36,7 @@ if __name__ == "__main__":
                   XGBClassification().get_name(): XGBClassification()
                  }
     genesim = GENESIM()
-    inTrees_clf = inTreesClassifier()
+    #inTrees_clf = inTreesClassifier()
 
     NR_FOLDS = 5
     for dataset in load_all_datasets():
@@ -52,7 +52,7 @@ if __name__ == "__main__":
             times[algorithm] = []
         conf_matrices['GENESIM'], avg_nodes['GENESIM'], times['GENESIM'] = [], [], []
         conf_matrices['ISM'], avg_nodes['ISM'], times['ISM'] = [], [], []
-        conf_matrices['inTrees'], avg_nodes['inTrees'], times['inTrees'] = [], [], []
+        #conf_matrices['inTrees'], avg_nodes['inTrees'], times['inTrees'] = [], [], []
 
         skf = StratifiedKFold(df[label_col], n_folds=NR_FOLDS, shuffle=True, random_state=None)
 
@@ -141,7 +141,7 @@ if __name__ == "__main__":
             # print 'Accuracy [-1, +1]:', float(correct) / float(total_count)
             print 'Accuracy:', float(diagonal_sum) / float(total_count)
             print 'Balanced accuracy:', float(norm_diagonal_sum) / float(conf_matrix.shape[0])
-            avg_nodes['inTrees'].append(len(orl.rule_list))
+            # avg_nodes['inTrees'].append(len(orl.rule_list))
 
             print 'GENESIM'
             # train_gen = train.rename(columns={'Class': 'cat'})
