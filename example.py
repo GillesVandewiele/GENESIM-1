@@ -22,7 +22,7 @@ from sklearn.neural_network import MLPClassifier
 import constructors.ISM
 from constructors.ensemble import RFClassification, XGBClassification, bootstrap
 from constructors.genesim import GENESIM
-from constructors.inTrees import inTreesClassifier
+#from constructors.inTrees import inTreesClassifier
 from constructors.treeconstructor import QUESTConstructor, GUIDEConstructor, C45Constructor, CARTConstructor
 from data.load_all_datasets import load_all_datasets
 from decisiontree import DecisionTree
@@ -90,29 +90,29 @@ if __name__ == "__main__":
 
             _constructors = [CARTConstructor(), QUESTConstructor(), GUIDEConstructor()]
 
-            print 'inTrees'
-            start = time.time()
-            orl = inTrees_clf.construct_rule_list(train, label_col, _constructors, nr_bootstraps=25)
-            end = time.time()
-            times['inTrees'].append(end-start)
-            predictions = orl.evaluate_multiple(X_test).astype(int)
-            conf_matrices['inTrees'].append(confusion_matrix(y_test, predictions))
-            conf_matrix = confusion_matrix(y_test, predictions)
-            print conf_matrix
-            diagonal_sum = sum(
-                [conf_matrix[i][i] for i in range(len(conf_matrix))])
-            norm_diagonal_sum = sum(
-                [float(conf_matrix[i][i]) / float(sum(conf_matrix[i])) for i in
-                 range(len(conf_matrix))])
-            total_count = np.sum(conf_matrix)
-            correct = 0
-            for i in range(len(conf_matrix)):
-                correct += conf_matrix[i][i] + conf_matrix[i][max(i - 1, 0)] * ((i - 1) >= 0) + \
-                           conf_matrix[i][min(i + 1, len(conf_matrix[i]) - 1)] * ((i + 1) <= len(conf_matrix[i]) - 1)
-            # print 'Accuracy [-1, +1]:', float(correct) / float(total_count)
-            print 'Accuracy:', float(diagonal_sum) / float(total_count)
-            print 'Balanced accuracy:', float(norm_diagonal_sum) / float(conf_matrix.shape[0])
-            avg_nodes['inTrees'].append(len(orl.rule_list))
+#             print 'inTrees'
+#             start = time.time()
+#             orl = inTrees_clf.construct_rule_list(train, label_col, _constructors, nr_bootstraps=25)
+#             end = time.time()
+#             times['inTrees'].append(end-start)
+#             predictions = orl.evaluate_multiple(X_test).astype(int)
+#             conf_matrices['inTrees'].append(confusion_matrix(y_test, predictions))
+#             conf_matrix = confusion_matrix(y_test, predictions)
+#             print conf_matrix
+#             diagonal_sum = sum(
+#                 [conf_matrix[i][i] for i in range(len(conf_matrix))])
+#             norm_diagonal_sum = sum(
+#                 [float(conf_matrix[i][i]) / float(sum(conf_matrix[i])) for i in
+#                  range(len(conf_matrix))])
+#             total_count = np.sum(conf_matrix)
+#             correct = 0
+#             for i in range(len(conf_matrix)):
+#                 correct += conf_matrix[i][i] + conf_matrix[i][max(i - 1, 0)] * ((i - 1) >= 0) + \
+#                            conf_matrix[i][min(i + 1, len(conf_matrix[i]) - 1)] * ((i + 1) <= len(conf_matrix[i]) - 1)
+#             # print 'Accuracy [-1, +1]:', float(correct) / float(total_count)
+#             print 'Accuracy:', float(diagonal_sum) / float(total_count)
+#             print 'Balanced accuracy:', float(norm_diagonal_sum) / float(conf_matrix.shape[0])
+#             avg_nodes['inTrees'].append(len(orl.rule_list))
 
             print 'ISM'
             start = time.time()
