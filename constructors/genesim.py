@@ -183,7 +183,7 @@ class GENESIM(object):
         :param features: list of dimension names
         :return: new set of regions, which are the intersections of the regions in 1 and 2
         """
-        print "Merging ", len(regions1), " with ", len(regions2), " regions."
+        # print "Merging ", len(regions1), " with ", len(regions2), " regions."
         S_intersections = [None] * len(features)
         for i in range(len(features)):
             # Create B1 and B2: 2 arrays of line segments
@@ -634,7 +634,7 @@ class GENESIM(object):
         start = time.clock()
 
         for k in range(num_iterations):
-            print "Calculating accuracy and sorting"
+            # print "Calculating accuracy and sorting"
             tree_accuracy = []
             for tree in tree_list:
                 predicted_labels = tree.evaluate_multiple(test_features_df)
@@ -642,7 +642,7 @@ class GENESIM(object):
                 tree_accuracy.append((tree, accuracy, tree.count_nodes()))
 
             tree_list = [x[0] for x in sorted(tree_accuracy, key=lambda x: (-x[1], x[2]))[:min(len(tree_list), population_size)]]
-            print("----> Best tree till now: ", [(x[1], x[2]) for x in sorted(tree_accuracy, key=lambda x: (-x[1], x[2]))[:min(len(tree_list), population_size)]])
+            # print("----> Best tree till now: ", [(x[1], x[2]) for x in sorted(tree_accuracy, key=lambda x: (-x[1], x[2]))[:min(len(tree_list), population_size)]])
 
             # Crossovers
             mngr = multiprocessing.Manager()
@@ -662,15 +662,15 @@ class GENESIM(object):
 
             for new_tree in return_dict.values():
                 if new_tree is not None:
-                    print 'new tree added', accuracy_score(test_labels_df[label_col].values.astype(int), new_tree.evaluate_multiple(test_features_df).astype(int))
+                    # print 'new tree added', accuracy_score(test_labels_df[label_col].values.astype(int), new_tree.evaluate_multiple(test_features_df).astype(int))
                     tree_list.append(new_tree)
 
                     if prune:
-                        print 'Pruning the tree...', new_tree.count_nodes()
+                        # print 'Pruning the tree...', new_tree.count_nodes()
                         new_tree = new_tree.cost_complexity_pruning(train_features_df, train_labels_df[label_col], None, cv=False,
                                                             val_features=test_features_df,
                                                             val_labels=test_labels_df[label_col])
-                        print 'Done', new_tree.count_nodes(), accuracy_score(test_labels_df[label_col].values.astype(int), new_tree.evaluate_multiple(test_features_df).astype(int))
+                        # print 'Done', new_tree.count_nodes(), accuracy_score(test_labels_df[label_col].values.astype(int), new_tree.evaluate_multiple(test_features_df).astype(int))
                         tree_list.append(new_tree)
 
             # Mutation phase
@@ -678,10 +678,10 @@ class GENESIM(object):
                 value = np.random.rand()
                 if value < mutation_prob:
                     new_tree1 = self._mutate_shift_random(tree, train_features_df, train_labels_df[label_col].values)
-                    print 'new mutation added', accuracy_score(test_labels_df[label_col].values.astype(int),
+                    # print 'new mutation added', accuracy_score(test_labels_df[label_col].values.astype(int),
                                                                new_tree1.evaluate_multiple(test_features_df).astype(int))
                     new_tree2 = self._mutate_swap_subtrees(tree, train_features_df, train_labels_df[label_col].values)
-                    print 'new mutation added', accuracy_score(test_labels_df[label_col].values.astype(int),
+                    # print 'new mutation added', accuracy_score(test_labels_df[label_col].values.astype(int),
                                                                new_tree2.evaluate_multiple(test_features_df).astype(int))
                     tree_list.append(new_tree1)
                     tree_list.append(new_tree2)
@@ -698,7 +698,7 @@ class GENESIM(object):
             tree_accuracy.append((tree, accuracy, tree.count_nodes()))
 
 
-        print [x for x in sorted(tree_accuracy, key=lambda x: (-x[1], x[2]))[:min(len(tree_list), population_size)]]
+        # print [x for x in sorted(tree_accuracy, key=lambda x: (-x[1], x[2]))[:min(len(tree_list), population_size)]]
 
         best_tree = sorted(tree_accuracy, key=lambda x: (-x[1], x[2]))[0][0]
         return best_tree
