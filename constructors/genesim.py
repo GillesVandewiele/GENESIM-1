@@ -679,10 +679,10 @@ class GENESIM(object):
                 if value < mutation_prob:
                     new_tree1 = self._mutate_shift_random(tree, train_features_df, train_labels_df[label_col].values)
                     # print 'new mutation added', accuracy_score(test_labels_df[label_col].values.astype(int),
-                                                               new_tree1.evaluate_multiple(test_features_df).astype(int))
+                                                               #new_tree1.evaluate_multiple(test_features_df).astype(int))
                     new_tree2 = self._mutate_swap_subtrees(tree, train_features_df, train_labels_df[label_col].values)
                     # print 'new mutation added', accuracy_score(test_labels_df[label_col].values.astype(int),
-                                                               new_tree2.evaluate_multiple(test_features_df).astype(int))
+                                                               #new_tree2.evaluate_multiple(test_features_df).astype(int))
                     tree_list.append(new_tree1)
                     tree_list.append(new_tree2)
 
