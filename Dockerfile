@@ -52,11 +52,9 @@ RUN tar -xvzf randomForest_4.6-12.tar.gz
 RUN R -e 'install.packages("'$(pwd)'/randomForest", repos=NULL, type="source")'
 RUN wget https://cran.r-project.org/src/contrib/inTrees_1.1.tar.gz
 RUN tar -xvzf inTrees_1.1.tar.gz
-# RUN R -e 'install.packages("arules")'
-# RUN R -e 'install.packages("RRF")'
-# RUN R -e 'install.packages("gbm")'
-# RUN R -e 'install.packages("xtable")'
-RUN R -e 'install.packages("'$(pwd)'/inTrees", repos=NULL, type="source", dependencies=TRUE)'
+RUN R -e 'install.packages("devtools", repos="http://cran.us.r-project.org")'
+RUN R -e 'library(devtools); install("'$(pwd)'/inTrees", dependencies=TRUE)'
+
 
 # ADD /GENESIM-1 .
 
