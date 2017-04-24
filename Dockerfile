@@ -14,6 +14,7 @@ RUN apt-get -y install r-base
 RUN apt-get -y install libcurl4-openssl-dev
 RUN apt-get -y install tk
 RUN apt-get -y install libcurl4-gnutls-dev
+RUN apt-get -y install libssl-dev
 
 # Clone the repo, set working dir
 RUN git clone https://github.com/GillesVandewiele/GENESIM-1
