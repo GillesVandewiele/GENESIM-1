@@ -44,12 +44,9 @@ RUN cd R-3.3.2 && ./configure --with-readline=no --with-x=no && make && make ins
 # Special care needed for C45Learner from Orange
 RUN wget http://www.rulequest.com/Personal/c4.5r8.tar.gz
 RUN tar -xvzf c4.5r8.tar.gz
-RUN cd R8/Src
 RUN wget https://raw.githubusercontent.com/biolab/orange/master/Orange/orng/buildC45.py
 RUN wget https://raw.githubusercontent.com/biolab/orange/master/Orange/orng/ensemble.c
-RUN python buildC45.py
-RUN cd ..
-RUN cd ..
+RUN cd R8/Src && python buildC45.py
 
 # Install some R packages
 RUN wget https://cran.r-project.org/src/contrib/randomForest_4.6-12.tar.gz
