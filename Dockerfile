@@ -58,8 +58,6 @@ RUN tar -xvzf inTrees_1.1.tar.gz
 # RUN R -e 'install.packages("xtable")'
 RUN R -e 'install.packages("'$(pwd)'/inTrees", repos=NULL, type="source", dependencies=TRUE)'
 
-RUN cp -r /usr/local/lib/python2.7/dist-packages/* /usr/local/lib/python2.7/site-packages
-
 # ADD /GENESIM-1 .
 
 # Run app.py when the container launches
