@@ -145,7 +145,7 @@ if __name__ == "__main__":
             print 'GENESIM'
             # train_gen = train.rename(columns={'Class': 'cat'})
             start = time.time()
-            genetic = genesim.genetic_algorithm(train, label_col, _constructors, seed=None, num_iterations=25,
+            genetic = genesim.genetic_algorithm(train, label_col, _constructors, seed=None, num_iterations=50,
                                                num_crossovers=10, population_size=150, val_fraction=0.5, prune=True,
                                                max_samples=1, tournament_size=10, nr_bootstraps=25)
             end = time.time()
