@@ -36,7 +36,7 @@ if __name__ == "__main__":
                   XGBClassification().get_name(): XGBClassification()
                  }
     genesim = GENESIM()
-    inTrees_clf = inTreesClassifier()
+    #inTrees_clf = inTreesClassifier()
 
     NR_FOLDS = 5
     for dataset in load_all_datasets():
