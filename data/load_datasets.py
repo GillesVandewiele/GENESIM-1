@@ -12,16 +12,16 @@ import numpy as np
 import os
 
 
-# def load_wine():
-#     columns = ['Class', 'Alcohol', 'Acid', 'Ash', 'Alcalinity', 'Magnesium', 'Phenols', 'Flavanoids', 'Nonflavanoids',
-#               'Proanthocyanins', 'Color', 'Hue', 'Diluted', 'Proline']
-#     features = ['Alcohol', 'Acid', 'Ash', 'Alcalinity', 'Magnesium', 'Phenols', 'Flavanoids', 'Nonflavanoids',
-#               'Proanthocyanins', 'Color', 'Hue', 'Diluted', 'Proline']
-#     df = pd.read_csv(os.path.join(os.sep.join(os.path.realpath(__file__).split(os.sep)[:-1]), 'wine.data'))
-#     df.columns = columns
-#     df['Class'] = np.subtract(df['Class'], 1)
-#
-#     return df, features, 'Class', 'wine'
+def load_wine():
+    columns = ['Class', 'Alcohol', 'Acid', 'Ash', 'Alcalinity', 'Magnesium', 'Phenols', 'Flavanoids', 'Nonflavanoids',
+              'Proanthocyanins', 'Color', 'Hue', 'Diluted', 'Proline']
+    features = ['Alcohol', 'Acid', 'Ash', 'Alcalinity', 'Magnesium', 'Phenols', 'Flavanoids', 'Nonflavanoids',
+              'Proanthocyanins', 'Color', 'Hue', 'Diluted', 'Proline']
+    df = pd.read_csv(os.path.join(os.sep.join(os.path.realpath(__file__).split(os.sep)[:-1]), 'wine.data'))
+    df.columns = columns
+    df['Class'] = np.subtract(df['Class'], 1)
+
+    return df, features, 'Class', 'wine'
 #
 #
 def load_cars():
@@ -49,57 +49,57 @@ def load_cars():
     return df, features, 'Class', 'cars'
 #
 #
-# def load_wisconsin_breast_cancer():
-#     columns = ['ID', 'ClumpThickness', 'CellSizeUniform', 'CellShapeUniform', 'MargAdhesion', 'EpithCellSize', 'BareNuclei',
-#                'BlandChromatin', 'NormalNuclei', 'Mitoses', 'Class']
-#     features = ['ClumpThickness', 'CellSizeUniform', 'CellShapeUniform', 'MargAdhesion', 'EpithCellSize', 'BareNuclei',
-#                'BlandChromatin', 'NormalNuclei', 'Mitoses']
-#     df = pd.read_csv(os.path.join(os.sep.join(os.path.realpath(__file__).split(os.sep)[:-1]), 'breast-cancer-wisconsin.data'))
-#     df.columns = columns
-#     df['Class'] = np.subtract(np.divide(df['Class'], 2), 1)
-#     df = df.drop('ID', axis=1).reset_index(drop=True)
-#     df['BareNuclei'] = df['BareNuclei'].replace('?', int(np.mean(df['BareNuclei'][df['BareNuclei'] != '?'].map(int))))
-#     df = df.applymap(int)
-#
-#     return df, features, 'Class', 'wisconsinBreast'
-
-
-def load_aheart():
-    columns = ['age', 'sex', 'chest pain type', 'resting blood pressure', 'serum cholestoral', 'fasting blood sugar', \
-               'resting electrocardio', 'max heartrate', 'exercise induced', 'oldpeak', 'slope peak', \
-               'vessels', 'thal', 'Class']
-    features = ['age', 'sex', 'chest pain type', 'resting blood pressure', 'serum cholestoral', 'fasting blood sugar', \
-               'resting electrocardio', 'max heartrate', 'exercise induced', 'oldpeak', 'slope peak', \
-               'vessels', 'thal']
-
-    columns_copy = []
-    for column in columns:
-        column=column[:10]
-        columns_copy.append(column)
-    columns = columns_copy
-
-    features_copy = []
-    for feature in features:
-        feature=feature[:10]
-        features_copy.append(feature)
-    features=features_copy
-
-    df = pd.read_csv(os.path.join(os.sep.join(os.path.realpath(__file__).split(os.sep)[:-1]), 'heart.dat'), sep=' ')
+def load_wisconsin_breast_cancer():
+    columns = ['ID', 'ClumpThickness', 'CellSizeUniform', 'CellShapeUniform', 'MargAdhesion', 'EpithCellSize', 'BareNuclei',
+               'BlandChromatin', 'NormalNuclei', 'Mitoses', 'Class']
+    features = ['ClumpThickness', 'CellSizeUniform', 'CellShapeUniform', 'MargAdhesion', 'EpithCellSize', 'BareNuclei',
+               'BlandChromatin', 'NormalNuclei', 'Mitoses']
+    df = pd.read_csv(os.path.join(os.sep.join(os.path.realpath(__file__).split(os.sep)[:-1]), 'breast-cancer-wisconsin.data'))
     df.columns = columns
-    df['Class'] = np.subtract(df['Class'], 1)
-    return df, features, 'Class', 'heart'
+    df['Class'] = np.subtract(np.divide(df['Class'], 2), 1)
+    df = df.drop('ID', axis=1).reset_index(drop=True)
+    df['BareNuclei'] = df['BareNuclei'].replace('?', int(np.mean(df['BareNuclei'][df['BareNuclei'] != '?'].map(int))))
+    df = df.applymap(int)
+
+    return df, features, 'Class', 'wisconsinBreast'
 
 
-# def load_glass():
-#     columns = ['id', 'RI', 'Na', 'Mg', 'Al', 'Si', 'K', 'Ca', 'Ba', 'Fe', 'Class']
-#     features = ['RI', 'Na', 'Mg', 'Al', 'Si', 'K', 'Ca', 'Ba', 'Fe']
-#     df = pd.read_csv(os.path.join(os.sep.join(os.path.realpath(__file__).split(os.sep)[:-1]), 'glass.data'))
+# def load_aheart():
+#     columns = ['age', 'sex', 'chest pain type', 'resting blood pressure', 'serum cholestoral', 'fasting blood sugar', \
+#                'resting electrocardio', 'max heartrate', 'exercise induced', 'oldpeak', 'slope peak', \
+#                'vessels', 'thal', 'Class']
+#     features = ['age', 'sex', 'chest pain type', 'resting blood pressure', 'serum cholestoral', 'fasting blood sugar', \
+#                'resting electrocardio', 'max heartrate', 'exercise induced', 'oldpeak', 'slope peak', \
+#                'vessels', 'thal']
+
+#     columns_copy = []
+#     for column in columns:
+#         column=column[:10]
+#         columns_copy.append(column)
+#     columns = columns_copy
+
+#     features_copy = []
+#     for feature in features:
+#         feature=feature[:10]
+#         features_copy.append(feature)
+#     features=features_copy
+
+#     df = pd.read_csv(os.path.join(os.sep.join(os.path.realpath(__file__).split(os.sep)[:-1]), 'heart.dat'), sep=' ')
 #     df.columns = columns
-#     df = df.drop('id', axis=1).reset_index(drop=True)
 #     df['Class'] = np.subtract(df['Class'], 1)
-#     df = df[df['Class'] != 3]
-#     df['Class'] = df['Class'].map({0:0, 1:1, 2:2, 4: 3, 5: 4, 6: 5}).astype(int)
-#     return df, features, 'Class', 'glass'
+#     return df, features, 'Class', 'heart'
+
+
+def load_glass():
+    columns = ['id', 'RI', 'Na', 'Mg', 'Al', 'Si', 'K', 'Ca', 'Ba', 'Fe', 'Class']
+    features = ['RI', 'Na', 'Mg', 'Al', 'Si', 'K', 'Ca', 'Ba', 'Fe']
+    df = pd.read_csv(os.path.join(os.sep.join(os.path.realpath(__file__).split(os.sep)[:-1]), 'glass.data'))
+    df.columns = columns
+    df = df.drop('id', axis=1).reset_index(drop=True)
+    df['Class'] = np.subtract(df['Class'], 1)
+    df = df[df['Class'] != 3]
+    df['Class'] = df['Class'].map({0:0, 1:1, 2:2, 4: 3, 5: 4, 6: 5}).astype(int)
+    return df, features, 'Class', 'glass'
 #
 #
 # def load_austra():
