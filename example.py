@@ -15,6 +15,8 @@ from sklearn.grid_search import GridSearchCV
 from sklearn.metrics import confusion_matrix
 from sklearn.cross_validation import StratifiedKFold, KFold
 
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.neural_network import MLPClassifier
