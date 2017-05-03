@@ -43,7 +43,7 @@ if __name__ == "__main__":
     genesim = GENESIM()
     #inTrees_clf = inTreesClassifier()
 
-    NR_FOLDS = 5
+    NR_FOLDS = 10
     for dataset in load_all_datasets():
         df = dataset['dataframe']
         label_col = dataset['label_col']
@@ -150,9 +150,9 @@ if __name__ == "__main__":
             print 'GENESIM'
             # train_gen = train.rename(columns={'Class': 'cat'})
             start = time.time()
-            genetic = genesim.genetic_algorithm(train, label_col, _constructors, seed=None, num_iterations=75,
-                                               num_crossovers=15, population_size=250, val_fraction=0.6, prune=True,
-                                               max_samples=1, tournament_size=20, nr_bootstraps=25)
+            genetic = genesim.genetic_algorithm(train, label_col, _constructors, seed=None, num_iterations=50,
+                                               num_crossovers=15, population_size=250, val_fraction=0.4, prune=False,
+                                               max_samples=1, tournament_size=20, nr_bootstraps=25, seed=None)
             end = time.time()
             times['GENESIM'].append(end - start)
             predictions = genetic.evaluate_multiple(X_test).astype(int)
